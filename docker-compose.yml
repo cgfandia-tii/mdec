@@ -4,14 +4,13 @@ services:
   frontend:
     image: nginx
     volumes:
-     - nginx_logs:/logs
-     - ./frontend/nginx.conf:/etc/nginx/nginx.conf:ro
-     - ./frontend/www:/www:ro
-     # - ./keys/ssl-dev/:/ssl:ro
+      - ./frontend/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./frontend/www:/www:ro
+      # - ./keys/ssl-dev/:/ssl:ro
     ports:
-     - "80:80"
-     - "443:443"
-    command: [nginx]
+      - "80:80"
+      - "443:443"
+    command: [ nginx ]
 
   angr:
     build:
@@ -47,6 +46,3 @@ services:
     build:
       context: backend
       target: snowman
-
-volumes:
-  nginx_logs:
